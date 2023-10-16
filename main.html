@@ -110,13 +110,14 @@
         back = document.getElementById("back")
         window.onpointermove = (e) => {
           y = e.clientY;
-          if(y != oldy){
+          if(y != oldy ){
             isMouseDown = true;
           }
           else{
             isMouseDown = false; // マウスを離した→ジャンプ
             jumper.jump(power / 20);
           }
+          oldy = y; 
 
         };
         window.onpointerdown = () => {
