@@ -103,7 +103,7 @@
       let oldy = 0;
       let timerId = NaN; // タイマー
       let isMouseDown = false; // マウス押下中か否か
-      let boxes = [new Box(0, 350, 300)]; // 箱のリスト（最初の１つは設定）
+      let boxes = [new Box(0, 500, 500)]; // 箱のリスト（最初の１つは設定）
       let back; // 背景画像
       let shuriken = new Shuriken();
 
@@ -124,13 +124,14 @@
         back = document.getElementById("back")
         window.onpointermove = (e) => {
           y = e.clientY;
-          if(y != oldy){
+          if(y - oldy > 10){
             isMouseDown = true;
           }
-          else{
+          if(y == 0){
             isMouseDown = false; // マウスを離した→ジャンプ
-            jumper.jump(power / 20);
+            jumper.jump(power / 30);
           }
+          oldy = y;
 
         };
         window.onpointerdown = () => {
@@ -138,7 +139,7 @@
         };
         window.onpointerup = () => {
           isMouseDown = false; // マウスを離した→ジャンプ
-          jumper.jump(power / 20);
+          jumper.jump(power / 30);
         };
 
         timerId = setInterval(tick, 50); // タイマーの開始
