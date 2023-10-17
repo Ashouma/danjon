@@ -7,6 +7,15 @@
       body {
         cursor: none;
       }
+      /*
+      #back{
+        height: 100vh;
+        width:auto;
+        background-size: auto 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      */
     </style>
     <script>
       class Shuriken {
@@ -115,14 +124,13 @@
         back = document.getElementById("back")
         window.onpointermove = (e) => {
           y = e.clientY;
-          if(y != oldy ){
+          if(y != oldy){
             isMouseDown = true;
           }
           else{
             isMouseDown = false; // マウスを離した→ジャンプ
             jumper.jump(power / 20);
           }
-          oldy = y; 
 
         };
         window.onpointerdown = () => {
@@ -168,9 +176,8 @@
     </script>
   </head>
   <body>
-   
-    <canvas id="field" width="800" height="600"></canvas>
-    <img src="back.png" id="back" style="display: none">
+    <canvas id="field" width="1200" height="600"></canvas>
+    <img src="back.png" id="back"style="display: none">
     <img src="stick0.png" id="stick0" style="display: none">
     <img src="stick1.png" id="stick1" style="display: none">
     <img src="stick2.png" id="stick2" style="display: none">
